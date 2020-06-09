@@ -1,5 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import classes from './SideUser.module.css';
 
@@ -9,10 +10,21 @@ const SideUser = (props) => (
 			<img src={props.profilPicture} />
 		</div>
 		<div className={classes.User}>
+			{console.log(props.user)}
 			<p>{props.user}</p>
 		</div>
-        <Link to={`/${props.userId}/newpicture`}><span>Add a picture</span></Link>
+		<Link to={`/${props.userId}/newpicture`}>
+			<h4>Add a picture</h4>
+		</Link>
 	</div>
 );
 
-export default SideUser;
+const mapStateToProps=(state)=>{
+	return {
+		profilPicture: state.profilPicture,
+		user: state.username,
+		userId: state.userId
+	}
+}
+
+export default connect(mapStateToProps)(SideUser);
