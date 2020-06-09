@@ -32,4 +32,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default MainPage;
+export default connect(mapStateToProps)(MainPage);

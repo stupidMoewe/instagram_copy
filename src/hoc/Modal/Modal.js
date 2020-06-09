@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import {CSSTransition} from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 
 import BackDrop from 'hoc/BackDrop/BackDrop';
-import classes from 'Modal.module.css';
+import classes from './Modal.module.css';
 
 const ModalOverlay = (props) => {
 	const content = (
@@ -20,7 +20,7 @@ const ModalOverlay = (props) => {
 	return ReactDom.createPortal(content, document.getElementById('modal-hook'));
 };
 
-const Modal = props => {
+const Modal = (props) => {
 	return (
 		<React.Fragment>
 			{props.show && <BackDrop onClick={props.onCancel} />}

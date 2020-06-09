@@ -1,14 +1,28 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
+
+import Root from 'Root';
+import Router from 'Router';
 import MainPage from '../MainPage';
 import Elements from '../Elements/Elements';
 import SideUser from '../SideUser/SideUser';
 
 let wrapped;
 
-describe('mainPage with', () => {
+describe('mainPage', () => {
 	beforeEach(() => {
-		wrapped = shallow(<MainPage />);
+		const initialState = {};
+		wrapped = mount(
+			<Root initialState={initialState}>
+				<Router>
+					<MainPage />
+				</Router>
+			</Root>
+		);
+	});
+
+	afterEach(() => {
+		wrapped.unmount();
 	});
 
 	it('renders the containers with all the pictures', () => {
