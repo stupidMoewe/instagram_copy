@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 import Elements from './Elements/Elements';
 import SideUser from './SideUser/SideUser';
@@ -13,23 +12,11 @@ class MainPage extends Component {
 					<Elements />
 				</div>
 				<div className={classes.SideUser}>
-					<SideUser
-						user={this.props.username}
-						profilPicture={this.props.profilPicture}
-						userId={this.props.userId}
-					/>
+					<SideUser />
 				</div>
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = (state) => {
-	return {
-		profilPicture: state.profilPicture,
-		username: state.username,
-		userId: state.userId
-	};
-};
-
-export default connect(mapStateToProps)(MainPage);
+export default MainPage;

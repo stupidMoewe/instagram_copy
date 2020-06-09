@@ -10,7 +10,6 @@ const SideUser = (props) => (
 			<img src={props.profilPicture} />
 		</div>
 		<div className={classes.User}>
-			{console.log(props.user)}
 			<p>{props.user}</p>
 		</div>
 		<Link to={`/${props.userId}/newpicture`}>
@@ -21,9 +20,9 @@ const SideUser = (props) => (
 
 const mapStateToProps=(state)=>{
 	return {
-		profilPicture: state.profilPicture,
-		user: state.username,
-		userId: state.userId
+		profilPicture: state.auth.profilPicture,
+		user: state.auth.username,
+		userId: state.auth.userId
 	}
 }
 

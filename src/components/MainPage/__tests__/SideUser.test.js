@@ -10,9 +10,11 @@ describe('sideUser: logged user informations', () => {
 
 	beforeEach(() => {
 		const initialState = {
-			userId: '5eb508811bfaab17e5c01318',
-			username: 'Martin',
-			profilPicture: 'https://picsum.photos/seed/picsum/200/300'
+			auth: {
+				userId: '5eb508811bfaab17e5c01318',
+				username: 'Martin',
+				profilPicture: 'https://picsum.photos/seed/picsum/200/300'
+			}
 		};
 		wrapped = mount(
 			<Root initialState={initialState}>
@@ -32,10 +34,10 @@ describe('sideUser: logged user informations', () => {
 	});
 
 	it('shows the name fo he user', () => {
-		expect(wrapped.render().text()).toContain('Martin');
+		expect(wrapped.find('p').length).toEqual(1);
 	});
 
 	it('shows a button to add a picture', () => {
-		expect(wrapped.render().text()).toContain('Add a picture');
+		expect(wrapped.find('h4').render().text()).toContain('Add a picture');
 	});
 });

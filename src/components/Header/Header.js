@@ -15,12 +15,15 @@ class Header extends Component {
 				<Link to="/" className={classes.Title}>
 					Instagram
 				</Link>
+
 				<div className={classes.Input}>
 					<input placeholder="Search" />
 				</div>
+
 				<div className={classes.User} onClick={() => this.setState({ modalShow: !this.state.modalShow })}>
 					<p>{this.props.username}</p>
 				</div>
+				
 				<Modal show={this.state.modalShow} onCancel={() => this.setState({ modalShow: false })} header="Login">
 					<input type="text" placeholder="email" />
 					<input type="text" placeholder="password" />
@@ -32,8 +35,8 @@ class Header extends Component {
 
 const mainStateToProps = (state) => {
 	return {
-		username: state.username,
-		profilPicture: state.profilPicture
+		username: state.auth.username,
+		profilPicture: state.auth.profilPicture
 	};
 };
 
