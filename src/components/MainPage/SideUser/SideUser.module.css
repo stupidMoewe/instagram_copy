@@ -1,0 +1,40 @@
+.SideUser {
+	position: fixed;
+	background-color: var(--white2);
+	display: flex;
+	flex-wrap: wrap;
+	width: 15%;
+	font-size: large;
+}
+.SideUser a {
+	display: inline-block;
+	width: 6rem;
+	height: auto;
+	background-color: transparent;
+	border: 1px solid lightblue;
+	border-radius: 5px;
+	font-size: 0.8rem;
+	outline: none;
+	text-decoration: none;
+	color: black;
+	cursor: default;
+	vertical-align: middle;
+}
+.Picture {
+	width: 4rem;
+	height: 4rem;
+	margin: 1rem;
+}
+.Picture img {
+	width: 4rem;
+	height: 4rem;
+	border-radius: 50%;
+}
+.User {
+	width: 4rem;
+	height: 4rem;
+	margin: 1rem;
+}
+.User p {
+	display: inline-block;
+}

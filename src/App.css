@@ -1,0 +1,9 @@
+:root{
+  --white1: rgb(255, 255, 255);
+  --white2: rgb(249, 249, 249);
+}
+
+.App {
+  text-align: center;
+  background-color: var(--white2);
+}
