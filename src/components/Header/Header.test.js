@@ -38,7 +38,6 @@ describe('header tests', () => {
 	});
 
 	it('shows the username of the user logged',()=>{
-		console.log(wrapper.find('p').render().text())
 		expect(wrapper.find('p').render().text()).toContain('Martin');
 	})
 });

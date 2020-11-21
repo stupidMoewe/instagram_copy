@@ -1,0 +1,12 @@
+.Button{
+    padding: 1rem;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 4px;
+	text-align: center;
+	justify-content: center;
+	margin: 1rem;
+}
+.Button:hover{
+    transform: scale(1.05);
+}

@@ -1,19 +1,42 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Picture from './Picture/Picture';
-import * as DUMMY from '../../Dummy/DummyData';
-import classes from './UserPicturesList.module.css';
-import axios from 'axios';
-// import * as firebase from 'firebase';
 
-// var app = firebase.initializeApp();
-// var otherDatabase = firebase.database(app);
+import * as actions from 'store/actions';
+import classes from './UserPicturesList.module.css';
+
 class UserPicturesList extends Component {
+	componentDidMount() {
+		this.props.fetchUserImages(this.props.userId);
+	}
 	render() {
-		let userPictures = <h1>No picture</h1>;
-		
-		return <div className={classes.UserPictures}>{userPictures}</div>;
+		let arrayOfImages = [];
+		if (this.props.items) {
+			arrayOfImages = this.props.items;
+		}
+		const userPictures = arrayOfImages.map((image, index) => {
+			return <Picture image={image} key={index}/>;
+		});
+		return (
+			<div className={classes.UserPictures} style={{ marginTop: '3rem' }}>
+				{userPictures}
+			</div>
+		);
 	}
 }
 
-export default UserPicturesList;
+const mapPropsToState = (state) => {
+	return {
+		items: state.pictures.pictures,
+		userId: state.auth.userId
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		fetchUserImages: (userId) => dispatch(actions.fetchUserImages(userId))
+	};
+};
+
+export default connect(mapPropsToState, mapDispatchToProps)(UserPicturesList);

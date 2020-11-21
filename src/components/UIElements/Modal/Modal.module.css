@@ -1,0 +1,31 @@
+.Modal{
+    position: fixed;
+    left:30%;
+    top: 15%; 
+    width: 40%;
+    min-height: 1rem;
+    background-color: white;
+    z-index: 100;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+.Header{
+    padding:0.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: var(--theme-color-blue);
+}
+.Content{
+    display: flex;
+    flex-direction: column;
+    margin: 3rem;
+}
+.Content input{
+    margin: 1rem;
+    height: 2rem;
+    font-size: 1.1rem;
+}
+.Footer{
+    margin: 1rem;
+    text-align: center;
+}

@@ -2,23 +2,37 @@
 	position: fixed;
 	background-color: var(--white2);
 	display: flex;
+	flex-direction: column;
 	flex-wrap: wrap;
 	width: 15%;
 	font-size: large;
 }
-.SideUser a {
+.UserMainInfo {
+	margin: 1rem;
+}
+.UserMainInfo a {
+	color: black;
+	display: flex;
+	text-decoration: none;
+}
+.AddPicture {
 	display: inline-block;
-	width: 6rem;
+	width: auto;
 	height: auto;
-	background-color: transparent;
-	border: 1px solid lightblue;
+	border: 1px solid lightgray;
 	border-radius: 5px;
-	font-size: 0.8rem;
+	font-size: 1rem;
 	outline: none;
 	text-decoration: none;
+	background-color: white;
+	padding-top: 0.5rem;
+}
+.AddPicture a {
 	color: black;
-	cursor: default;
-	vertical-align: middle;
+	text-decoration: none;
+}
+h4 {
+	margin: 0;
 }
 .Picture {
 	width: 4rem;
@@ -36,5 +50,6 @@
 	margin: 1rem;
 }
 .User p {
-	display: inline-block; 
+	display: inline-block;
+	font-size: 1.5rem;
 }

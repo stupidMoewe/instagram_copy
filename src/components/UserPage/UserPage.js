@@ -1,31 +1,44 @@
 import React, { Component } from 'react';
-import { useParams, withRouter } from 'react-router-dom';
-import {connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+import * as actions from 'store/actions';
 import UserPicturesList from './UserPicturesList/UserPicturesList';
+//import pictures from 'store/reducers/pictures';
 
 class UserPage extends Component {
 	state = {
-		loadedPictures:null,
+		loadedPictures: null,
 		creatorId: this.props.match.params.creatorId
-	}
+	};
 
-	async componentDidMount(){
-		const response = await fetch(`http://localhost:5000/api/pictures/user/${this.state.creatorId}`)
-		const responseData = await response.json();
-		this.setState({loadedPictures: responseData});
-		console.log(this.state.loadedPictures);
+	componentDidMount() {
+		this.props.fetchUserImages(this.state.creatorId);
+		// const response = await fetch(`http://localhost:5000/api/pictures/user/${this.state.creatorId}`)
+		// const responseData = await response.json();
+		// this.setState({loadedPictures: responseData});
 	}
 
 	render() {
-		console.log(this.state.creatorId);
 		return (
 			<div>
-				<h1>{this.state.creatorId}</h1>
-				<UserPicturesList userId={this.state.creatorId} />
+				<h1>{this.state.userId}</h1>
+				<UserPicturesList userId={this.state.userId} />
 			</div>
 		);
 	}
 }
 
-export default withRouter(UserPage);
+const displayPropsToState = (state) => {
+	return {
+		userPictures: state.pictures
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		fetchUserImages: (userId) => dispatch(actions.fetchUserImages(userId))
+	};
+};
+
+export default connect(displayPropsToState, mapDispatchToProps)(withRouter(UserPage));
