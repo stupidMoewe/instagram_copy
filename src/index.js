@@ -1,20 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import reduxThunk from 'redux-thunk';
+import { createStore, applyMiddleware, compose } from 'redux';
+import rootReducer from 'store/reducers';
 
-import Root from 'Root';
-import App from 'App';
+import App from 'components/App';
 
-const initialState = {
-	auth: {
-		userId: '5eb508811bfaab17e5c01318',
-		username: 'Martin',
-		profilPicture: 'https://picsum.photos/seed/picsum/200/300'
-	}
-};
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(reduxThunk)));
 
 ReactDOM.render(
-	<Root initialState={initialState}>
+	<Provider store={store}>
 		<App />
-	</Root>,
+	</Provider>,
 	document.getElementById('root')
 );

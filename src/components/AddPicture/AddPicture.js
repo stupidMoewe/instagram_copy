@@ -16,24 +16,7 @@ class AddPicture extends Component {
 
 	submitHandler = (event) => {
 		event.preventDefault();
-
-		// get user pictures back
-		// fetch('http://localhost:5000/api/pictures/').then((res) => res.json()).then(
-		// 	(result) => {
-		// 		this.setState({
-		// 			isLoaded: true,
-		// 			items: result.pictures
-		// 		});
-		// 	},
-		// 	(error) => {
-		// 		this.setState({
-		// 			isLoaded: true,
-		// 			error
-		// 		});
-		// 	}
-		// );
-
-		// post the new pictures
+		// post the new picture
 		const request = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
@@ -71,7 +54,7 @@ class AddPicture extends Component {
 							onChange={this.handleChange}
 						/>
 					</div>
-					{/* <input type="Submit" value="Submit"/> */}
+					<input type="Submit" value="Submit"/> 
 				</form>
 			</div>
 		);
@@ -80,7 +63,7 @@ class AddPicture extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		userId: state.userId
+		userId: state.auth.userId
 	};
 };
 
